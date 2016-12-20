@@ -1,0 +1,4 @@
+services:
+#    xm_address_book.example:
+#        class: XM\AddressBookBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,26 @@
+{% extends "XMAddressBookBundle::index.html.twig" %}
+
+{% block title %}
+    Supprimer un contact - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h2>Supprimer un contact</h2>
+
+    <p>
+        Etes-vous certain de vouloir supprimer le contact "{{ contact.name }}" ?
+    </p>
+
+    <form action="{{ path("address_book_contact_delete", { 'id': contact.id }) }}" method="post">
+        <a href="{{ path('address_book_home') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour
+        </a>
+
+        <input type="submit" value="Supprimer" class="btn btn-danger" />
+
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}

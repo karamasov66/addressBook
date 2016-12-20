@@ -1,0 +1,35 @@
+{% extends "XMAddressBookBundle::index.html.twig" %}
+
+{% block body %}
+
+    <h2>{{ contact.name }}</h2>
+
+    <div class="well">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Ville</th>
+                <th>Adresse</th>
+                <th>Site internet</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.phoneNumber }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.city }}</td>
+                <td>{{ contact.street }}</td>
+                <td>{{ contact.website }}</td>
+
+            </tr>
+            </tbody>
+        </table>
+        <a href="{{ path("address_book_contact_edit", { 'id': contact.id }) }}">Editer</a>
+        <a href="{{ path("address_book_contact_delete", { 'id': contact.id }) }}">Supprimer</a>
+    </div>
+
+{% endblock %}

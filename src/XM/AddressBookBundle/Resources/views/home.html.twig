@@ -1,0 +1,40 @@
+{% extends "XMAddressBookBundle::index.html.twig" %}
+
+{% block contact_menu %}
+
+{% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="flash-notice">
+        <p class="alert alert-success">{{ flash_message }}</p>
+    </div>
+{% endfor %}
+
+<ul class="nav nav-tabs nav-pills nav-stacked wells" style="margin-bottom: 20px;">
+    <li>
+        <a href="{{ path("address_book_contact_add") }}">Ajouter un contact</a>
+    </li>
+    <li>
+        <a href="{{ path("address_book_contact_list") }}">Voir tout mes contacts</a>
+    </li>
+</ul>
+<form method="GET" action="{{ path( "address_book_contact_single") }}">
+    <div class="form-group">
+        <label for="search" style="color:#428bca;">Chercher un contact</label>
+        <input class="form-control" id="search" type="search" name="name" placeholder="Entrez un nom">
+        <input class="btn btn-primary" type="submit">
+    </div>
+</form>
+
+<div class="well">
+    {% if contacts is empty%}
+        <p class="alert alert-danger">Vous n'avez pas encore enregistré de contacts</p>
+    {% endif %}
+    <ul class="list-group">
+        {% for contact in contacts %}
+            <li class="list-group-item">{{ contact.name }}</li>
+            <a href="{{ path("address_book_contact_edit", { 'id': contact.id }) }}">Editer</a>
+            <a href="{{ path("address_book_contact_delete", { 'id': contact.id }) }}">Supprimer</a>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

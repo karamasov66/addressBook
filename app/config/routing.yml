@@ -1,0 +1,5 @@
+xm_address_book:
+    resource: "@XMAddressBookBundle/Resources/config/routing.yml"
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

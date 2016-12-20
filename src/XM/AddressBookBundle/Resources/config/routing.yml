@@ -1,0 +1,32 @@
+address_book_index:
+    path:     /
+    defaults: { _controller: XMAddressBookBundle:Default:index }
+
+address_book_home:
+    path:     /MyAddressBook
+    defaults: { _controller: XMAddressBookBundle:Default:home }
+
+address_book_contact_add:
+    prefix:   /MyAddressBook
+    path:     /addContact
+    defaults: { _controller: XMAddressBookBundle:Default:add }
+
+address_book_contact_edit:
+    prefix:   /MyAddressBook
+    path:     /editContact/{id}
+    defaults: { _controller: XMAddressBookBundle:Default:edit }
+
+address_book_contact_single:
+    prefix:   /MyAddressBook
+    path:     /singleContact
+    defaults: { _controller: XMAddressBookBundle:Default:single }
+
+address_book_contact_list:
+    prefix:   /MyAddressBook
+    path:     /listContacts
+    defaults: { _controller: XMAddressBookBundle:Default:list }
+
+address_book_contact_delete:
+    prefix:   /MyAddressBook
+    path:     /deleteContact/{id}
+    defaults: { _controller: XMAddressBookBundle:Default:delete }
